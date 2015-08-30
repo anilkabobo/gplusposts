@@ -39,7 +39,7 @@ var gplus = (function() {
 
   function getFirstPosts() {
     function checkPosts() {
-      if (!prevData || new Date(gplusData.items[0].published) <= new Date(prevData.items[0].published)) {
+      if (!prevData || new Date(gplusData.items[0].published) < new Date(prevData.items[0].published)) {
         prevData = gplusData;
         getActivities(100, gplusData.nextPageToken, checkPosts);
       }
@@ -73,7 +73,7 @@ var gplus = (function() {
   return {
     init: init,
     getLastNPosts: getLastNPosts,
-    getFirstPost: getFirstPost
+    getFirstPosts: getFirstPosts
   }
 })();
 
